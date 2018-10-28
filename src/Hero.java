@@ -30,32 +30,32 @@ class Hero {
         this.y = y;
     }
 
-    public void ShanXian(char FangXiang, int value, char[][] map) {
+    public void ShanXian(char FangXiang, int value, char[][] maps) {
         switch (FangXiang) {
             case 'u':
             case 'U':
-                while (map[x - value][y] != '.' && value != 0) {
+                while (maps[x - value][y] != '.' && value != 0) {
                     value--;
                 }
                 x -= value;
                 break;
             case 'd':
             case 'D':
-                while (map[x + value][y] != '.' && value != 0) {
+                while (maps[x + value][y] != '.' && value != 0) {
                     value--;
                 }
                 x += value;
                 break;
             case 'l':
             case 'L':
-                while (map[x][y - value] != '.' && value != 0) {
+                while (maps[x][y - value] != '.' && value != 0) {
                     value--;
                 }
                 y -= value;
                 break;
             case 'r':
             case 'R':
-                while (map[x][y + value] != '.' && value != 0) {
+                while (maps[x][y + value] != '.' && value != 0) {
                     value--;
                 }
                 y += value;
@@ -63,22 +63,24 @@ class Hero {
         }
     }
 
-    public int fire(Hero[]hero,char FangXiang,char [][]map,int m,int n){
-    	zidan one = new zidan(x,y);
-    	return one.fire(hero,FangXiang,map,m,n);
+    public int fire(Hero[] hero, char FangXiang, char[][] maps) {
+        zidan one = new zidan(x, y);
+        return one.fire(hero, FangXiang, maps);
     }
-    public int attack(){
-    	return atk;
+
+    public int attack() {
+        return atk;
     }
+
     /**
-     * 
      * @param ATK 遭受的攻击值
      * @return 剩余生命值
      */
-    public int defend(int ATK){
-    	hp-=ATK;
-    	return hp;
+    public int defend(int ATK) {
+        hp -= ATK;
+        return hp;
     }
+
     public void setX(int val) {
         x = val;
     }
@@ -90,6 +92,7 @@ class Hero {
     public char getName() {
         return name;
     }
+
     public int getX() {
         return x;
     }

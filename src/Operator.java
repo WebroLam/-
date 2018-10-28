@@ -1,24 +1,16 @@
 import java.util.*;
 
-class Map {
-    private int m;
-    private int n;
+class Operator {
+    private int size_m = 12;
+    private int size_n = 12;
     private int HeroNum;
-    private char[][] map;
     private Hero[] Hero;
+    public Map map;
 
-
-    Map(int m, int n, int HeroNum) {
+    Operator(int HeroNum) {
         this.HeroNum = HeroNum;
-        this.m = m;
-        this.n = n;
-        map = new char[m][n];
+        map = new Map();
 
-        for (int i = 0; i < m; i++)
-            for (int j = 0; j < n; j++)
-                map[i][j] = '.';
-        for(int i = 2; i < 5; i++)
-        	map[3][i]='*';
         Hero = new Hero[HeroNum];
         for (int i = 0; i < HeroNum; i++)
             Hero[i] = new Hero();
@@ -28,9 +20,9 @@ class Map {
      * @param n         第几个英雄（从1开始）
      * @param FangXiang 只有l、r、u、d，分别代表移动方向的左右上下
      * @param value     移动距离
-     * @return 移动成功与否
+     *
      */
-    public void ShanXian(int n, char FangXiang, int value) {
+    private void ShanXian(int n, char FangXiang, int value) {
 
         int x = Hero[n - 1].getX();
         int y = Hero[n - 1].getY();
@@ -38,40 +30,40 @@ class Map {
             case 'u':
             case 'U':
                 if (x - value >= 0) {
-                    Hero[n - 1].ShanXian(FangXiang, value, map);
+                    Hero[n - 1].ShanXian(FangXiang, value, map.maps);
                 } else {
-                    Hero[n - 1].ShanXian(FangXiang, x, map);
+                    Hero[n - 1].ShanXian(FangXiang, x, map.maps);
                 }
                 break;
 
             case 'd':
             case 'D':
-                if (x + value < m) {
-                    Hero[n - 1].ShanXian(FangXiang, value, map);
+                if (x + value < size_m) {
+                    Hero[n - 1].ShanXian(FangXiang, value, map.maps);
                 } else {
-                    Hero[n - 1].ShanXian(FangXiang, m - x - 1, map);
+                    Hero[n - 1].ShanXian(FangXiang, size_m - x - 1, map.maps);
                 }
                 break;
 
             case 'l':
             case 'L':
                 if (y - value >= 0) {
-                    Hero[n - 1].ShanXian(FangXiang, value, map);
+                    Hero[n - 1].ShanXian(FangXiang, value, map.maps);
                 } else {
-                    Hero[n - 1].ShanXian(FangXiang, y, map);
+                    Hero[n - 1].ShanXian(FangXiang, y, map.maps);
                 }
                 break;
 
             case 'R':
             case 'r':
-                if (y + value < this.n) {
-                    Hero[n - 1].ShanXian(FangXiang, value, map);
+                if (y + value < this.size_n) {
+                    Hero[n - 1].ShanXian(FangXiang, value, map.maps);
                 } else {
-                    Hero[n - 1].ShanXian(FangXiang, this.n - y - 1, map);
+                    Hero[n - 1].ShanXian(FangXiang, this.size_n - y - 1, map.maps);
                 }
                 break;
         }
-        map[x][y] = '.';
+        map.maps[x][y] = '.';
         GengXinWeiZhi(n);
         //m代表y，n代表x。左上角为（0,0）
 
@@ -83,22 +75,22 @@ class Map {
 
     }
     
-    public void move(int n, char FangXiang, int value) {
+    private void move(int n, char FangXiang, int value) {
         int x = Hero[n - 1].getX();
         int y = Hero[n - 1].getY();
         switch (FangXiang) {
             case 'u':
             case 'U':
                 for (int i = 0; i < value; i++) {
-                    if (x - 1 >= 0 && map[x - 1][y] == '.') {
-                        map[x][y] = '.';
+                    if (x - 1 >= 0 && map.maps[x - 1][y] == '.') {
+                        map.maps[x][y] = '.';
                         x--;
                         Hero[n - 1].setX(x);
                         GengXinWeiZhi(n);
-                        print();
+                        map.print();
                     } else {
                         if (i == 0)
-                            print();
+                            map.print();
                         break;
                     }
                 }
@@ -106,15 +98,15 @@ class Map {
             case 'd':
             case 'D':
                 for (int i = 0; i < value; i++) {
-                    if (x + 1 >= 0 && map[x + 1][y] == '.') {
-                        map[x][y] = '.';
+                    if (x + 1 <size_m && map.maps[x + 1][y] == '.') {
+                        map.maps[x][y] = '.';
                         x++;
                         Hero[n - 1].setX(x);
                         GengXinWeiZhi(n);
-                        print();
+                        map.print();
                     } else {
                         if (i == 0)
-                            print();
+                            map.print();
                         break;
                     }
                 }
@@ -122,15 +114,15 @@ class Map {
             case 'l':
             case 'L':
                 for (int i = 0; i < value; i++) {
-                    if (y - 1 >= 0 && map[x][y - 1] == '.') {
-                        map[x][y] = '.';
+                    if (y - 1 >= 0 && map.maps[x][y - 1] == '.') {
+                        map.maps[x][y] = '.';
                         y--;
                         Hero[n - 1].setY(y);
                         GengXinWeiZhi(n);
-                        print();
+                        map.print();
                     } else {
                         if (i == 0)
-                            print();
+                            map.print();
                         break;
                     }
                 }
@@ -138,15 +130,15 @@ class Map {
             case 'r':
             case 'R':
                 for (int i = 0; i < value; i++) {
-                    if (y + 1 >= 0 && map[x][y + 1] == '.') {
-                        map[x][y] = '.';
+                    if (y + 1 < size_n && map.maps[x][y + 1] == '.') {
+                        map.maps[x][y] = '.';
                         y++;
                         Hero[n - 1].setY(y);
                         GengXinWeiZhi(n);
-                        print();
+                        map.print();
                     } else {
                         if (i == 0)
-                            print();
+                            map.print();
                         break;
                     }
                 }
@@ -160,7 +152,7 @@ class Map {
         //	Hero[n-1].ShanXian(x, y);
         //	GengXinWeiZhi(n);
     }
-    public void attack(int AttackHero,int DefendHero)
+    private void attack(int AttackHero,int DefendHero)
     {
     	int AtkX = Hero[AttackHero-1].getX();
     	int AtkY = Hero[AttackHero-1].getY();
@@ -171,10 +163,10 @@ class Map {
     	if(distance<=2){
     		int DefendHeroHP=Hero[DefendHero-1].defend(Hero[AttackHero-1].attack());
     		if(DefendHeroHP<=0){
-    			map[Hero[DefendHero-1].getX()][Hero[DefendHero-1].getY()] = 'X';
-    			print();
-    			map[Hero[DefendHero-1].getX()][Hero[DefendHero-1].getY()] = '.';
-    			print();
+    			map.maps[Hero[DefendHero-1].getX()][Hero[DefendHero-1].getY()] = 'X';
+    			map.print();
+    			map.maps[Hero[DefendHero-1].getX()][Hero[DefendHero-1].getY()] = '.';
+    			map.print();
     			System.out.println("英雄"+Hero[DefendHero-1].getName()+"被"+Hero[AttackHero-1].getName()+"击杀");
     		}else{
     			System.out.println("英雄"+Hero[DefendHero-1].getName()+"剩余hp："+DefendHeroHP);
@@ -186,16 +178,6 @@ class Map {
     	}
     }
     
-    
-    public void print() {
-        System.out.println("===============");
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++)
-                System.out.print(map[i][j]);
-            System.out.println();
-        }
-        System.out.println("===============");
-    }
 
     /**
      * 初始化英雄
@@ -214,8 +196,12 @@ class Map {
         GengXinWeiZhi(n);
     }
 
+    /**
+     * 根据英雄中x，y的值在地图上显示
+     *
+     */
     private void GengXinWeiZhi(int n) {
-        map[Hero[n - 1].getX()][Hero[n - 1].getY()] = Hero[n - 1].getName();
+        map.maps[Hero[n - 1].getX()][Hero[n - 1].getY()] = Hero[n - 1].getName();
     }
 
     public void operator() {
@@ -232,51 +218,57 @@ class Map {
             if (Hero > HeroNum || Hero < 1)
                 System.out.println("输入的英雄序号错误");
             else {
+                label:
                 while (true) {
                     System.out.println("输入英雄操作");
                     CaoZuo = reader.next();
-                    if (CaoZuo.equals("ShanXian")) {
-                        System.out.println("闪现方向  闪现距离（最大为5）");
-                        FangXiang = reader.next().charAt(0);
-                        while (!reader.hasNextInt()) {
-                            System.out.println("输入了非数字内容，请重新输入");
-                            reader.next();
-                        }
-                        value = reader.nextInt();
-                        if (value > 5)
-                            value = 5;
-                        ShanXian(Hero, FangXiang, value);
-                        print();
-                    } else if (CaoZuo.equals("move")) {
-                        System.out.println("移动方向  移动距离");
-                        FangXiang = reader.next().charAt(0);
-                        while (!reader.hasNextInt()) {
-                            System.out.println("输入了非数字内容，请重新输入");
-                            reader.next();
-                        }
-                        value = reader.nextInt();
-                        move(Hero, FangXiang, value);
-                    } else if(CaoZuo.equals("atk")){
-                    	System.out.println("请输入被攻击玩家序号");
-                    	
-                   	 while (!reader.hasNextInt()) {
-                            System.out.println("输入了非数字内容，请重新输入");
-                            reader.next();
-                        }
-                        value = reader.nextInt();
-                        
-                        attack(Hero,value);
-                        
-                   }else if(CaoZuo.equals("arrow")){
-                   	System.out.println("请输入攻击方向");
-              
-                   	FangXiang = reader.next().charAt(0);
-                    
-                    arrow(Hero,FangXiang);
-                    
-               }                  
-                    else if (CaoZuo.equals("end")) {
-                        break;
+
+                    switch (CaoZuo) {
+                        case "ShanXian":
+                            System.out.println("闪现方向  闪现距离（最大为5）");
+                            FangXiang = reader.next().charAt(0);
+                            while (!reader.hasNextInt()) {
+                                System.out.println("输入了非数字内容，请重新输入");
+                                reader.next();
+                            }
+                            value = reader.nextInt();
+                            if (value > 5)
+                                value = 5;
+                            ShanXian(Hero, FangXiang, value);
+                            map.print();
+                            break;
+                        case "move":
+                            System.out.println("移动方向  移动距离");
+                            FangXiang = reader.next().charAt(0);
+                            while (!reader.hasNextInt()) {
+                                System.out.println("输入了非数字内容，请重新输入");
+                                reader.next();
+                            }
+                            value = reader.nextInt();
+                            move(Hero, FangXiang, value);
+                            break;
+                        case "atk":
+                            System.out.println("请输入被攻击玩家序号");
+
+                            while (!reader.hasNextInt()) {
+                                System.out.println("输入了非数字内容，请重新输入");
+                                reader.next();
+                            }
+                            value = reader.nextInt();
+
+                            attack(Hero, value);
+
+                            break;
+                        case "arrow":
+                            System.out.println("请输入攻击方向");
+
+                            FangXiang = reader.next().charAt(0);
+
+                            arrow(Hero, FangXiang);
+
+                            break;
+                        case "end":
+                            break label;
                     }
                 }
             }
@@ -285,20 +277,16 @@ class Map {
     }
 
 	private void arrow(int hero2, char fangXiang) {
-		// TODO Auto-generated method stub
-		int DefendHero=Hero[hero2-1].fire(Hero,fangXiang,map,m,n);
-		if(DefendHero==-1)
-		{
-			
-		}
-		else
+        /* TODO Auto-generated method stub */
+		int DefendHero=Hero[hero2-1].fire(Hero,fangXiang, map.maps);
+		if(DefendHero!=-1)
 		{
 			int DefendHeroHP=Hero[DefendHero].defend(Hero[hero2-1].attack());
     		if(DefendHeroHP<=0){
-    			map[Hero[DefendHero].getX()][Hero[DefendHero].getY()] = 'X';
-    			print();
-    			map[Hero[DefendHero].getX()][Hero[DefendHero].getY()] = '.';
-    			print();
+    			map.maps[Hero[DefendHero].getX()][Hero[DefendHero].getY()] = 'X';
+    			map.print();
+    			map.maps[Hero[DefendHero].getX()][Hero[DefendHero].getY()] = '.';
+    			map.print();
     			System.out.println("英雄"+Hero[DefendHero].getName()+"被"+Hero[hero2-1].getName()+"击杀");
     		}else{
     			System.out.println("英雄"+Hero[DefendHero].getName()+"剩余hp："+DefendHeroHP);
