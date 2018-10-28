@@ -1,11 +1,14 @@
-
+/**
+ * Ó¢ÐÛ»ùÀà
+ *
+ */
 
 class Hero {
-    private char name;
-    private int atk;
-    private int hp;
-    private int ex;
-    private int x, y;
+    protected char name;
+    protected int atk;
+    protected int hp;
+    protected int exp;
+    protected int x, y;
 
     Hero() {
 
@@ -25,7 +28,7 @@ class Hero {
         this.name = name;
         this.atk = atk;
         this.hp = hp;
-        this.ex = ex;
+        this.exp = ex;
         this.x = x;
         this.y = y;
     }

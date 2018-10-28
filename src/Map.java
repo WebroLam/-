@@ -1,3 +1,8 @@
+/**
+ * 地图类
+ * 用于保存地图数据
+ * 输出地图
+ */
 class Map{
     private int m = 12;
     private int n = 12;

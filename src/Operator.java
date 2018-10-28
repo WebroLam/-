@@ -1,5 +1,9 @@
 import java.util.*;
 
+/**
+ * 战场控制类
+ * 用于控制战场
+ */
 class Operator {
     private int size_m = 12;
     private int size_n = 12;
@@ -13,7 +17,7 @@ class Operator {
 
         Hero = new Hero[HeroNum];
         for (int i = 0; i < HeroNum; i++)
-            Hero[i] = new Hero();
+            Hero[i] = new HeroA();
     }
 
     /**
@@ -190,7 +194,7 @@ class Operator {
      * @param x    初始位置
      * @param y    初始位置
      */
-    public void ChuShiHua(int n, char name, int atk, int hp, int ex, int x, int y)//n表示第几个英雄,从1开始
+    public void initHero(int n, char name, int atk, int hp, int ex, int x, int y)//n表示第几个英雄,从1开始
     {
         Hero[n - 1].ChuShiHua(name, atk, hp, ex, x, y);
         GengXinWeiZhi(n);
