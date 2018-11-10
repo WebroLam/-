@@ -114,13 +114,13 @@ class zidan {
         } catch (AWTException e) {
             e.printStackTrace();
         }
-        one.delay(500);
+        one.delay(500);/*
         System.out.println("===============");
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++)
                 System.out.print(Operator[i][j]);
             System.out.println();
         }
-        System.out.println("===============");
+        System.out.println("===============");*/
     }
 }

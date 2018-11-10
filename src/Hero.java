@@ -33,6 +33,12 @@ class Hero {
         this.y = y;
     }
 
+    /**
+     * 每个英雄都有的技能，闪现
+     * @param FangXiang 闪现方向
+     * @param value 闪现距离
+     * @param maps 地图数据传入
+     */
     public void ShanXian(char FangXiang, int value, char[][] maps) {
         switch (FangXiang) {
             case 'u':
@@ -66,6 +72,13 @@ class Hero {
         }
     }
 
+    /**
+     * 远程攻击
+     * @param hero 英雄数据
+     * @param FangXiang 攻击方向
+     * @param maps 地图数据
+     * @return
+     */
     public int fire(Hero[] hero, char FangXiang, char[][] maps) {
         zidan one = new zidan(x, y);
         return one.fire(hero, FangXiang, maps);
