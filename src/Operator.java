@@ -12,78 +12,34 @@ import java.util.*;
 class Operator extends Thread {
     private int size_m = 12;
     private int size_n = 12;
-    private int HeroNum;
+    static public int HeroNum;
     private Hero[] Hero;
     public Map map;
     Thread mapThread;
+    lowAI aI;
 
-    Operator(int HeroNum) {
+    Operator(int HeroNum) throws IOException {
         super("OperatorThread");
         this.HeroNum = HeroNum;
         map = new Map();
-
         Hero = new Hero[HeroNum];
-        for (int i = 0; i < HeroNum; i++)
-            Hero[i] = new HeroA();
-        mapThread = new Thread(map,"MapThread");
+        for (int i = 0; i < HeroNum; i++) {
+            Hero[i] = new HeroA(map, Hero);
+        }
+        mapThread = new Thread(map, "MapThread");
         mapThread.start();
+        aI = new lowAI(Hero);//智能Ai模块
+        aI.start();
     }
+
+
     /**
      * @param n         第几个英雄（从1开始）
      * @param FangXiang 只有l、r、u、d，分别代表移动方向的左右上下
      * @param value     移动距离
      */
     private void ShanXian(int n, char FangXiang, int value) {
-
-        int x = Hero[n - 1].getX();
-        int y = Hero[n - 1].getY();
-        switch (FangXiang) {
-            case 'u':
-            case 'U':
-                if (x - value >= 0) {
-                    Hero[n - 1].ShanXian(FangXiang, value, map.maps);
-                } else {
-                    Hero[n - 1].ShanXian(FangXiang, x, map.maps);
-                }
-                break;
-
-            case 'd':
-            case 'D':
-                if (x + value < size_m) {
-                    Hero[n - 1].ShanXian(FangXiang, value, map.maps);
-                } else {
-                    Hero[n - 1].ShanXian(FangXiang, size_m - x - 1, map.maps);
-                }
-                break;
-
-            case 'l':
-            case 'L':
-                if (y - value >= 0) {
-                    Hero[n - 1].ShanXian(FangXiang, value, map.maps);
-                } else {
-                    Hero[n - 1].ShanXian(FangXiang, y, map.maps);
-                }
-                break;
-
-            case 'R':
-            case 'r':
-                if (y + value < this.size_n) {
-                    Hero[n - 1].ShanXian(FangXiang, value, map.maps);
-                } else {
-                    Hero[n - 1].ShanXian(FangXiang, this.size_n - y - 1, map.maps);
-                }
-                break;
-        }
-        map.maps[x][y] = '.';
-        GengXinWeiZhi(n);
-        //m代表y，n代表x。左上角为（0,0）
-
-
-        //	if(Hero[n-1].getX())
-        //	Hero[n-1].ShanXian(x, y);
-        //	GengXinWeiZhi(n);
-
-
+        Hero[n - 1].ShanXian(FangXiang, value);
     }
 
     /**
@@ -94,115 +50,33 @@ class Operator extends Thread {
      * @param value     移动距离
      */
     private void move(int n, char FangXiang, int value) throws InterruptedException {
-        int x = Hero[n - 1].getX();
-        int y = Hero[n - 1].getY();
-        switch (FangXiang) {
-            case 'u':
-            case 'U':
-                for (int i = 0; i < value; i++) {
-                    if (x - 1 >= 0 && map.maps[x - 1][y] == '.') {
-                        map.maps[x][y] = '.';
-                        x--;
-                        Hero[n - 1].setX(x);
-                        GengXinWeiZhi(n);
-                        delay();
-                    } else {
-                        if (i == 0)
-                            delay();
-                        break;
-                    }
-                }
-                break;
-            case 'd':
-            case 'D':
-                for (int i = 0; i < value; i++) {
-                    if (x + 1 < size_m && map.maps[x + 1][y] == '.') {
-                        map.maps[x][y] = '.';
-                        x++;
-                        Hero[n - 1].setX(x);
-                        GengXinWeiZhi(n);
-                        delay();
-                    } else {
-                        if (i == 0)
-                            delay();
-                        break;
-                    }
-                }
-                break;
-            case 'l':
-            case 'L':
-                for (int i = 0; i < value; i++) {
-                    if (y - 1 >= 0 && map.maps[x][y - 1] == '.') {
-                        map.maps[x][y] = '.';
-                        y--;
-                        Hero[n - 1].setY(y);
-                        GengXinWeiZhi(n);
-                        delay();
-                    } else {
-                        if (i == 0)
-                            delay();
-                        break;
-                    }
-                }
-                break;
-            case 'r':
-            case 'R':
-                for (int i = 0; i < value; i++) {
-                    if (y + 1 < size_n && map.maps[x][y + 1] == '.') {
-                        map.maps[x][y] = '.';
-                        y++;
-                        Hero[n - 1].setY(y);
-                        GengXinWeiZhi(n);
-                        delay();
-                    } else {
-                        if (i == 0)
-                            delay();
-                        break;
-                    }
-                }
-                break;
-        }
-
-        //m代表y，n代表x。左上角为（0,0）
-
-
-        //	if(Hero[n-1].getX())
-        //	Hero[n-1].ShanXian(x, y);
-        //	GengXinWeiZhi(n);
+        Hero[n - 1].move(FangXiang, value);
     }
 
     private void delay() throws InterruptedException {
         this.sleep(500);
     }
+
     /**
      * 英雄攻击
      *
      * @param AttackHero 攻击的英雄序号
      * @param DefendHero 被攻击的英雄序号
      */
-    private void attack(int AttackHero, int DefendHero) throws InterruptedException {
-        int AtkX = Hero[AttackHero - 1].getX();
-        int AtkY = Hero[AttackHero - 1].getY();
-        int DefX = Hero[DefendHero - 1].getX();
-        int DefY = Hero[DefendHero - 1].getY();
+    private void attack(int AttackHero, int DefendHero) {
+        Hero[AttackHero - 1].attack(DefendHero);
+    }
 
-        double distance = Math.sqrt((AtkX - DefX) * (AtkX - DefX) + (DefY - AtkY) * (DefY - AtkY));
-        if (distance <= 2) {
-            int DefendHeroHP = Hero[DefendHero - 1].defend(Hero[AttackHero - 1].attack());
-            if (DefendHeroHP <= 0) {
-                map.maps[Hero[DefendHero - 1].getX()][Hero[DefendHero - 1].getY()] = 'X';
-                delay();
-                map.maps[Hero[DefendHero - 1].getX()][Hero[DefendHero - 1].getY()] = '.';
-                delay();
-                System.out.println("英雄" + Hero[DefendHero - 1].getName() + "被" + Hero[AttackHero - 1].getName() + "击杀");
-            } else {
-                delay();
-                System.out.println("英雄" + Hero[DefendHero - 1].getName() + "剩余hp：" + DefendHeroHP);
-            }
-        } else {
-            delay();
-            System.out.println("两英雄间距离大于2，无法攻击");
-        }
+    /**
+     * 英雄射箭技能入口
+     *
+     * @param hero2     射箭的英雄
+     * @param fangXiang 射箭方向
+     */
+    private void arrow(int hero2, char fangXiang) {
+        /* TODO Auto-generated method stub */
+        Hero[hero2 - 1].arrow(fangXiang);
+
     }
 
 
@@ -217,17 +91,9 @@ class Operator extends Thread {
      * @param x    初始位置
      * @param y    初始位置
      */
-    public void initHero(int n, char name, int atk, int hp, int ex, int x, int y)//n表示第几个英雄,从1开始
+    public void initHero(int n, boolean camp,char name, int atk, int hp, int ex, int x, int y)//n表示第几个英雄,从1开始
     {
-        Hero[n - 1].ChuShiHua(name, atk, hp, ex, x, y);
-        GengXinWeiZhi(n);
-    }
-
-    /**
-     * 根据英雄中x，y的值在地图上显示
-     */
-    private void GengXinWeiZhi(int n) {
-        map.maps[Hero[n - 1].getX()][Hero[n - 1].getY()] = Hero[n - 1].getName();
+        Hero[n - 1].ChuShiHua(camp,name, atk, hp, ex, x, y);
     }
 
     /**
@@ -319,7 +185,7 @@ class Operator extends Thread {
                     if (value > 5)
                         value = 5;
                     ShanXian(Hero, FangXiang, value);
-                  //  map.print();
+                    //  map.print();
                     break;
                 case "move":
                     FangXiang = CaoZuo[1].charAt(0);
@@ -349,9 +215,9 @@ class Operator extends Thread {
         while (true) {
             this.sleep(500);
             int heroNum = Integer.valueOf(reader.readLine());
-            if(heroNum==-1)
+            if (heroNum == -1)
                 break;
-            if(heroNum<0||heroNum>10)
+            if (heroNum < 0 || heroNum > 10)
                 continue;
             while ((str = reader.readLine()) != null) {
                 this.sleep(500);
@@ -362,30 +228,9 @@ class Operator extends Thread {
                     break;
             }
         }
+        map.flg = false;
     }
 
-    /**
-     * 英雄射箭技能入口
-     *
-     * @param hero2     射箭的英雄
-     * @param fangXiang 射箭方向
-     */
-    private void arrow(int hero2, char fangXiang) {
-        /* TODO Auto-generated method stub */
-        int DefendHero = Hero[hero2 - 1].fire(Hero, fangXiang, map.maps);
-        if (DefendHero != -1) {
-            int DefendHeroHP = Hero[DefendHero].defend(Hero[hero2 - 1].attack());
-            if (DefendHeroHP <= 0) {
-                map.maps[Hero[DefendHero].getX()][Hero[DefendHero].getY()] = 'X';
-                map.print();
-                map.maps[Hero[DefendHero].getX()][Hero[DefendHero].getY()] = '.';
-                map.print();
-                System.out.println("英雄" + Hero[DefendHero].getName() + "被" + Hero[hero2 - 1].getName() + "击杀");
-            } else {
-                System.out.println("英雄" + Hero[DefendHero].getName() + "剩余hp：" + DefendHeroHP);
-            }
-        }
-    }
 
     @Override
     public void run() {
@@ -398,12 +243,3 @@ class Operator extends Thread {
         }
     }
 }
-
-
-
-
-
-
-
-
-

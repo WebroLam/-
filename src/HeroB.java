@@ -2,6 +2,9 @@
  * 英雄B，具有攻击力翻倍的被动技能
  */
 class HeroB extends Hero{
+    HeroB(Map map,Hero hero[]) {
+        super(map,hero);
+    }
     /**
      * 被动技能
      * 攻击值翻倍

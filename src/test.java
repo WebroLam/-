@@ -63,7 +63,7 @@ class carton extends Thread//从Thread类派生
     int position_x = 200, position_y = 150;//坐标.初始位置是(200,150)
     JFrame applet;
     Graphics g;
-    int sleep_time = 10;//睡眠时间
+    int sleep_time = 100;//睡眠时间
 
     Color my_color;
 
@@ -93,25 +93,27 @@ class carton extends Thread//从Thread类派生
     //计算小方块的坐标
     public void set_position() {
         if (up == true && position_y > 1)//假如向上的键被按下并且小方块的纵坐标大于1
-            position_y--;//小方块向上移动
+            position_y-=10;//小方块向上移动
         if (down == true && position_y < 330)//假如向下的键被按下并且小方块的纵坐标小于330
-            position_y++;//小方块向下移动
+            position_y+=10;//小方块向下移动
         if (left == true && position_x > 1)//假如向左的键被按下并且小方块的横坐标大于1
-            position_x--;//小方块向左移动
+            position_x-=10;//小方块向左移动
         if (right == true && position_x < 380)//假如向右的键被按下并且小方块的横坐标小于380
-            position_x++;//小方块向右移动
+            position_x+=10;//小方块向右移动
     }
 
     //画屏幕
     public void draw_image() {
-
         my_color = new Color(179, 179, 179);
         g.setColor(my_color);
+        g.clearRect(0,0,500,500);
         g.fillRect(0, 0, 400, 350);//画背景
-
+      //  g.drawChars("asdds".toCharArray(),1,2,200,200);
         my_color = new Color(100, 100, 100);
         g.setColor(my_color);
         g.fillRect(position_x, position_y, 20, 20);//根据小方块的坐标画小方块
+       // g.fillRect(position_x+5, position_y-10, 10, 20);//根据小方块的坐标画小方块
+
     }
 
     //表示方向的布尔变量的置true方法
