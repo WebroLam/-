@@ -12,6 +12,7 @@ import java.util.*;
 class Operator extends Thread {
     private int size_m = 12;
     private int size_n = 12;
+    static public int nowHero;
     static public int HeroNum;
     private Hero[] Hero;
     public Map map;
@@ -20,9 +21,10 @@ class Operator extends Thread {
 
     Operator(int HeroNum) throws IOException {
         super("OperatorThread");
+        this.nowHero = 0;
         this.HeroNum = HeroNum;
-        map = new Map();
         Hero = new Hero[HeroNum];
+        map = new Map(Hero);
         for (int i = 0; i < HeroNum; i++) {
             Hero[i] = new HeroA(map, Hero);
         }
@@ -228,7 +230,7 @@ class Operator extends Thread {
                     break;
             }
         }
-        map.flg = false;
+       // map.flg = false;//MapThreadÔÝÍ£
     }
 
 

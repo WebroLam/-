@@ -8,8 +8,9 @@ public class test extends JFrame implements KeyListener {
     carton carton_1 = null;//声明一个carton类的实例.
 
     public static void main(String[] args) {
-        test one = new test();
-        one.start();
+        System.out.println(100L);
+      //  test one = new test();
+      // one.start();
     }
 
     public void start() {
