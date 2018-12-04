@@ -1,27 +1,53 @@
 /**
  * 子弹类，用于发射箭矢
  *
- * @author SZU
+ * @author 78580 .
  */
-class zidan {
+class zidan extends Thread {
     private int m = 12;
     private int n = 12;
     private int x;
     private int y;
+    private Hero hostHero;
+    private char fangXiang;
 
-    zidan(int xx, int yy) {
+
+    zidan(int xx, int yy, Hero hostHero, char fangXiang) {
         x = xx;
         y = yy;
+        this.hostHero = hostHero;
+        this.fangXiang = fangXiang;
+    }
+
+    @Override
+    public void run() {
+        arrow();
+    }
+
+    public void arrow() {
+        int DefendHero = fire(hostHero.map.maps);
+        if (DefendHero != -1) {
+            if (hostHero.Hero[DefendHero].camp != hostHero.camp) {
+                int DefendHeroHP = hostHero.Hero[DefendHero].defend(hostHero.attack());
+                if (DefendHeroHP <= 0) {
+                    //System.out.println(hostHero.name + "死亡时间" + (System.currentTimeMillis()) + "ms");
+
+                    //  map.print();
+                    System.out.println("英雄" + hostHero.Hero[DefendHero].getname() + "被" + hostHero.getname() + "击杀");
+
+                } else {
+                    System.out.println("英雄" + hostHero.Hero[DefendHero].getname() + "剩余hp：" + DefendHeroHP);
+                }
+            }
+        }
     }
 
     /**
-     * @param hero      英雄数据传入
-     * @param FangXiang 攻击方向
-     * @param maps      地图数据传入
+     * @param maps 地图数据传入
      * @return 返回被攻击的英雄序号（从0开始）;-1代表未击中
      */
-    public int fire(Hero[] hero, char FangXiang, char[][] maps) {
-        switch (FangXiang) {
+    public int fire(char[][] maps) {
+        switch (fangXiang) {
             case 'u':
             case 'U':
                 for (int i = x - 1; i >= 0; i--) {
@@ -33,7 +59,7 @@ class zidan {
                         maps[i][y] = '.';
                     } else {
                         for (int j = 0; j < Operator.HeroNum; j++) {
-                            if (maps[i][y] == hero[j].getname()) {
+                            if (maps[i][y] == hostHero.Hero[j].getname()) {
                                 delay();
                                 return j;
                             }
@@ -53,7 +79,7 @@ class zidan {
                         maps[i][y] = '.';
                     } else {
                         for (int j = 0; j < Operator.HeroNum; j++) {
-                            if (maps[i][y] == hero[j].getname()) {
+                            if (maps[i][y] == hostHero.Hero[j].getname()) {
                                 delay();
                                 return j;
                             }
@@ -72,7 +98,7 @@ class zidan {
                         maps[x][i] = '.';
                     } else {
                         for (int j = 0; j < Operator.HeroNum; j++) {
-                            if (maps[x][i] == hero[j].getname()) {
+                            if (maps[x][i] == hostHero.Hero[j].getname()) {
                                 delay();
                                 return j;
                             }
@@ -91,7 +117,7 @@ class zidan {
                         maps[x][i] = '.';
                     } else {
                         for (int j = 0; j < Operator.HeroNum; j++) {
-                            if (maps[x][i] == hero[j].getname()) {
+                            if (maps[x][i] == hostHero.Hero[j].getname()) {
                                 delay();
                                 return j;
                             }

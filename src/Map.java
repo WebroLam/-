@@ -22,6 +22,7 @@ class Map extends JFrame implements Runnable {
         initJFrame();
         addBar();
         addkeyListener();
+        addMouseListener();
         initMaps();
         initJLabel();
         //        Graphics g = this.getGraphics();
@@ -45,8 +46,8 @@ class Map extends JFrame implements Runnable {
      * 初始化JFrame
      */
     private void initJFrame() {
-        setSize(size_n * 50, size_m * 50);
-        setLocation(500, 350);
+        setSize(300+10, size_m * 50+10);
+        setLocation(500, 35);
         setVisible(true);
         setAlwaysOnTop(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -93,9 +94,12 @@ class Map extends JFrame implements Runnable {
      * 初始化JLabel
      */
     private void initJLabel() {
+        Jpanel.setBounds(10, 10, 300, 600);
+        add(Jpanel);
         for (int i = 0; i < size_m; i++) {
             for (int j = 0; j < size_n; j++) {
-                label[i][j] = new JLabel(String.valueOf(maps[i][j]));
+                label[i][j] = new JLabel();
+                label[i][j].setText(String.valueOf(maps[i][j]));
                 label[i][j].setFont(new Font("Consolas", Font.PLAIN, 32));
                 label[i][j].setBounds(50 * j, i * 50, 50, 50);//设置label位置,这里一定要设置，不然看不到label
                 label[i][j].setOpaque(true);//设置不透明
@@ -105,7 +109,7 @@ class Map extends JFrame implements Runnable {
             // jlabel.setOpaque(true);
             // jlabel.setText(String.valueOf(maps[0]));
             //  Jpanel.add(jlabel);
-            setContentPane(Jpanel);
+
         }
     }
 
@@ -113,25 +117,35 @@ class Map extends JFrame implements Runnable {
     public void run() {
         while (flg) {
             try {
-                Thread.sleep(500);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-            Jpanel.repaint();
-            //printToWindow();
-            print();
+            // Jpanel.repaint();
+            printToWindow();
+            //     System.out.println((double) ((int)(Timer.time*10))/10);
+            // print();
         }
     }
 
     /**
      * 鼠标监听
      */
-    void mouseListener() {
+    void addMouseListener() {
         MouseAdapter mouse = new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
+            }
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println(e.getX() * 12 / 280 + "," + (e.getY() - 10) * 11 / 473);
+                hero[Operator.nowHero].setTarget_xy(e.getY() * 11 / 500, e.getX() * 12 / 280);
+                //hero[Operator.nowHero].moveToTargetPoint();
+                /*
+                 * @param target_y 鼠标x/300*12
+                 * @param target_x 鼠标y/600*12
+                 */
             }
 
             @Override
@@ -144,37 +158,41 @@ class Map extends JFrame implements Runnable {
                 super.mouseExited(e);
             }
         };
+        Jpanel.addMouseListener(mouse);
     }
 
     void addkeyListener() {
         int heroNum = Operator.nowHero;
-
         KeyAdapter key = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-
-                switch (e.getKeyChar()) {
-                    case 'w':
-                    case 'W':
-                        hero[heroNum].move('u', 1);
-                        System.out.println("WWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
-                        break;
-                    case 's':
-                    case 'S':
-                        hero[heroNum].move('d', 1);
-                        System.out.println("SSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-                        break;
-                    case 'A':
-                    case 'a':
-                        hero[heroNum].move('l', 1);
-                        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-                        break;
-                    case 'D':
-                    case 'd':
-                        hero[heroNum].move('r', 1);
-                        System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
-                        break;
-                }
+                new Thread(new Runnable() {
+                    @Override
+                    synchronized public void run() {
+                        switch (e.getKeyChar()) {
+                            case 'w':
+                            case 'W':
+                                hero[heroNum].arrow('u');
+                                System.out.println("WWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
+                                break;
+                            case 's':
+                            case 'S':
+                                hero[heroNum].arrow('d');
+                                System.out.println("SSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+                                break;
+                            case 'A':
+                            case 'a':
+                                hero[heroNum].arrow('l');
+                                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                                break;
+                            case 'D':
+                            case 'd':
+                                hero[heroNum].arrow('r');
+                                System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
+                                break;
+                        }
+                    }
+                }).start();
             }
 
             @Override
@@ -217,15 +235,24 @@ class Map extends JFrame implements Runnable {
      * 打印地图到窗口
      */
     public void printToWindow() {
-        StringBuilder out = new StringBuilder();
-        out.append("<html>");
-        for (int i = 0; i < size_m; i++) {
-            out.append(maps[i]);
-            out.append("<br/>");
-        }
+        // StringBuilder out = new StringBuilder();
+        //   out.append("<html>");
+        //    for (int i = 0; i < size_m; i++) {
+        //      out.append(maps[i]);
+        //      out.append("<br/>");
+        //  }
         // System.out.println("===============");
-        out.append("<html>");
-        //jlabel.setText(out.toString());
+        // out.append("<html>");
+        for (int i = 0; i < size_m; i++) {
+            for (int j = 0; j < size_n; j++) {
+                label[i][j].setText(String.valueOf(maps[i][j]));
+            }
+            //  jlabel.setBounds(5, 20, 10, 20);
+            // jlabel.setOpaque(true);
+            // jlabel.setText(String.valueOf(maps[0]));
+            //  Jpanel.add(jlabel);
+
+        }
     }
 
     void delay() {

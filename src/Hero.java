@@ -1,51 +1,169 @@
+import static java.lang.Math.sqrt;
+
 /**
  * 英雄基类
  * camp 标注阵营，分为true阵营和false阵营
  */
-class Hero {
+class Hero extends Thread {
     protected boolean camp;
+    protected boolean robot;
     protected char name;
     protected int atk;
     protected int hp;
     protected int exp;
     protected int x, y;
+    protected int target_x, target_y;
     protected Map map;
     protected Hero Hero[];
+    protected int speed;
+    protected int atk_speed;
+    protected boolean alive;
+    protected long relive_time;//时间单位ms
 
     Hero(Map map, Hero hero[]) {
+        relive_time = 15 * 1000;//ms
+        robot = true;
+        speed = 1;
+        alive = true;
         this.map = map;
         this.Hero = hero;
+    }
+
+    @Override
+    public void run() {
+        if (!camp) {
+            while (true) {
+                robot_alive();
+                dead();
+            }
+        } else {
+            while (true) {
+                player_alive();
+                dead();
+            }
+        }
+    }
+
+    /**
+     * 玩家存活
+     */
+    private void player_alive() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (alive) {
+                    if (target_x - x != 0 || target_y - y != 0) {
+                        moveToTargetPoint();
+                    }
+                    delay();
+                }
+            }
+        }).start();
+
+        while (true) {
+            if (hp <= 0) {
+                dying();
+                break;
+            }
+            delay();
+        }
+    }
+
+    /**
+     * 死亡后复活时间
+     */
+    private void dead() {
+        long death_timer = System.currentTimeMillis();
+        System.out.println(name + "死亡时间" + (System.currentTimeMillis()) + "ms");
+        while (!alive) {
+            if (System.currentTimeMillis() - death_timer >= relive_time) {//判断是否复活
+                GengXinWeiZhi();
+                hp = 30;
+                alive = true;
+                System.out.println("英雄" + name + "已复活！");
+            }
+        }
+    }
+
+    /**
+     * 机器人存活
+     */
+    private void robot_alive() {
+        while (alive) {
+            //  System.out.println("alive"+hp);
+            if (hp <= 0) {
+                dying();
+                break;
+            }
+            delay();
+            switch ((int) ((Math.random() * 30) % 3)) {
+                case 0:
+                    autoAttck();
+                    break;
+                case 1:
+                    autoShot();
+                    break;
+                case 2:
+                    stay();
+                    break;
+            }
+        }
+    }
+
+    /**
+     * 死亡瞬间后执行的事情
+     */
+    private void dying() {
+        alive = false;
+        map.maps[getX()][getY()] = 'X';
+        delay();
+        // map.print();
+        map.maps[getX()][getY()] = '.';
+        delay();
+        // map.maps[x][y] = '.';
+    }
+
+    /**
+     * 计算和另一位英雄的之间的距离
+     *
+     * @param other 另一位英雄
+     * @return 和另一位英雄的之间的距离 整型
+     */
+    public int calculateDistanceFromOther(Hero other) {
+        double temp = (x - other.x) * (x - other.x) + (y - other.y) * (y - other.y);
+        return (int) sqrt(temp);
     }
 
     /**
      * 英雄攻击
      *
-     * @param DefendHero 被攻击的英雄序号
+     * @param defendHeroNum 被攻击的英雄序号（从1开始）
      */
-    public void attack(int DefendHero) {
-        int x = this.x;
-        int y = this.y;
-        int DefX = Hero[DefendHero - 1].getX();
-        int DefY = Hero[DefendHero - 1].getY();
+    public void attack(int defendHeroNum) {
+        attack(Hero[defendHeroNum - 1]);
+    }
 
-        double distance = Math.sqrt((x - DefX) * (x - DefX) + (DefY - y) * (DefY - y));
-        if (distance <= 2) {
-            int DefendHeroHP = Hero[DefendHero - 1].defend(attack());
+    /**
+     * 英雄攻击
+     *
+     * @param defendHero 被攻击英雄
+     */
+    public void attack(Hero defendHero) {
+        if (calculateDistanceFromOther(defendHero) <= 2) {
+            int DefendHeroHP = defendHero.defend(attack());
             if (DefendHeroHP <= 0) {
-                map.maps[Hero[DefendHero - 1].getX()][Hero[DefendHero - 1].getY()] = 'X';
-                delay();
-                map.maps[Hero[DefendHero - 1].getX()][Hero[DefendHero - 1].getY()] = '.';
-                delay();
-                System.out.println("英雄" + Hero[DefendHero - 1].getname() + "被" + getname() + "击杀");
+
+                System.out.println("英雄" + defendHero.getname() + "被" + getname() + "击杀");
             } else {
                 delay();
-                System.out.println("英雄" + Hero[DefendHero - 1].getname() + "剩余hp：" + DefendHeroHP);
+                System.out.println("英雄" + defendHero.getname() + "剩余hp：" + DefendHeroHP);
             }
         } else {
             delay();
             System.out.println("两英雄间距离大于2，无法攻击");
         }
     }
+
 
     /**
      * 英雄射箭技能入口
@@ -54,21 +172,8 @@ class Hero {
      */
     public void arrow(char fangXiang) {
         /* TODO Auto-generated method stub */
-        int DefendHero = fire(Hero, fangXiang);
-        if (DefendHero != -1) {
-            int DefendHeroHP = Hero[DefendHero].defend(attack());
-            if (DefendHeroHP <= 0) {
-                map.maps[Hero[DefendHero].getX()][Hero[DefendHero].getY()] = 'X';
-                delay();
-                //map.print();
-                map.maps[Hero[DefendHero].getX()][Hero[DefendHero].getY()] = '.';
-                delay();
-                //  map.print();
-                System.out.println("英雄" + Hero[DefendHero].getname() + "被" + getname() + "击杀");
-            } else {
-                System.out.println("英雄" + Hero[DefendHero].getname() + "剩余hp：" + DefendHeroHP);
-            }
-        }
+        zidan one = new zidan(x, y, this, fangXiang);
+        one.start();
     }
 
     /**
@@ -221,20 +326,87 @@ class Hero {
         GengXinWeiZhi();
     }
 
-    /**
-     * 远程攻击
-     *
-     * @param hero      英雄数据
-     * @param FangXiang 攻击方向
-     * @return
-     */
-    public int fire(Hero[] hero, char FangXiang) {
-        zidan one = new zidan(x, y);
-        return one.fire(hero, FangXiang, map.maps);
-    }
-
     public int attack() {
         return atk;
+    }
+
+    /**
+     * 移动到目标距离
+     */
+    public void moveToTargetPoint() {//鼠标和地图的x、y互换
+        if (target_x - x < 0) move('u', 1);//-target_x + x
+        else if (target_x - x > 0) move('d', 1);
+        if (target_y - y < 0) move('l', 1);
+        else if (target_y - y > 0) move('r', 1);
+    }
+
+    /**
+     * 移动到
+     */
+    public void moveToTargetHero(Hero targetHero) {
+        setTarget_xy(targetHero.x, targetHero.y);
+        moveToTargetPoint();
+    }
+
+    /**
+     * 设置目标位置
+     *
+     * @param target_x
+     * @param target_y
+     */
+    public void setTarget_xy(int target_x, int target_y) {
+        this.target_x = target_x;
+        this.target_y = target_y;
+    }
+
+    /**
+     * 自动攻击周围距两圈内的敌人
+     */
+    private void autoAttck() {
+        for (int k = 0; k < Operator.HeroNum / 2; k++) {
+            if (calculateDistanceFromOther(Hero[k]) <= 3 && Hero[k].alive) {
+                moveToTargetHero(Hero[k]);
+                attack(k + 1);
+            }
+        }
+    }
+
+    /**
+     * 自动射击上下左右五格内的敌人
+     */
+    private void autoShot() {
+        for (int i = 1; i <= 5; i++) {//五格，一格一格往外层遍历
+            if (this.x - i >= 0)//防止越界
+                if (this.map.maps[this.x - i][this.y] >= 'A' && this.map.maps[this.x - i][this.y] <= 'L') {//上         下左右
+                    this.arrow('u');
+                }
+
+            if (this.x + i < Map.size_m)//防止越界
+                if (this.map.maps[this.x + i][this.y] >= 'A' && this.map.maps[this.x + i][this.y] <= 'L') {//下
+                    this.arrow('d');
+                }
+
+            if (this.y - i >= 0)//防止越界
+                if (this.map.maps[this.x][this.y - i] >= 'A' && this.map.maps[this.x][this.y - i] <= 'L') {//左
+                    this.arrow('l');
+                }
+
+            if (this.y + i < Map.size_n)//防止越界
+                if (this.map.maps[this.x][this.y + i] >= 'A' && this.map.maps[this.x][this.y + i] <= 'L') {//右
+                    this.arrow('r');
+                }
+        }
+    }
+
+    /**
+     * 发呆三秒
+     */
+    private void stay() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

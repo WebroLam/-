@@ -19,7 +19,7 @@ class Operator extends Thread {
     Thread mapThread;
     lowAI aI;
 
-    Operator(int HeroNum) throws IOException {
+    Operator(int HeroNum)   {
         super("OperatorThread");
         this.nowHero = 0;
         this.HeroNum = HeroNum;
