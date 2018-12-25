@@ -10,11 +10,13 @@ import java.awt.event.*;
 class Map extends JFrame implements Runnable {
     public static int size_m = 12;
     public static int size_n = 12;
+    public static char[][] maps;
+
     public boolean flg = true;
+
+    private Hero hero[];
     private MyPanel Jpanel = new MyPanel();
-    JLabel label[][] = new JLabel[size_m][size_n];
-    char[][] maps;
-    Hero hero[];
+    private JLabel label[][] = new JLabel[size_m][size_n];
 
     Map(Hero hero[]) {
         super("王者荣耀");
@@ -23,18 +25,19 @@ class Map extends JFrame implements Runnable {
         addBar();
         addkeyListener();
         addMouseListener();
-        initMaps();
+        //initMaps();
         initJLabel();
         //        Graphics g = this.getGraphics();
 //        Image img = ImageIO.read(new File("wxfix.png"));
 //        g.drawImage(img, 30, 80, null);
+        //victory();
     }
 
     /**
      * 初始化地图数据
      */
     private void initMaps() {
-        maps = new char[size_m][size_n];
+
         for (int i = 0; i < size_m; i++)
             for (int j = 0; j < size_n; j++)
                 maps[i][j] = '.';
@@ -46,10 +49,10 @@ class Map extends JFrame implements Runnable {
      * 初始化JFrame
      */
     private void initJFrame() {
-        setSize(300+10, size_m * 50+10);
+        setSize(size_n * 60 + 25, size_m * 60 + 25);
         setLocation(500, 35);
         setVisible(true);
-        setAlwaysOnTop(true);
+       // setAlwaysOnTop(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
@@ -94,21 +97,22 @@ class Map extends JFrame implements Runnable {
      * 初始化JLabel
      */
     private void initJLabel() {
-        Jpanel.setBounds(10, 10, 300, 600);
+        setLayout(null);
         add(Jpanel);
+        Jpanel.setBounds(25, 25, 625, 625);
+        Jpanel.setVisible(true);
+        Jpanel.setBackground(Color.GRAY);
+        Jpanel.setLayout(null);
         for (int i = 0; i < size_m; i++) {
             for (int j = 0; j < size_n; j++) {
                 label[i][j] = new JLabel();
                 label[i][j].setText(String.valueOf(maps[i][j]));
                 label[i][j].setFont(new Font("Consolas", Font.PLAIN, 32));
-                label[i][j].setBounds(50 * j, i * 50, 50, 50);//设置label位置,这里一定要设置，不然看不到label
+                label[i][j].setBounds(25 + 50 * j, 10 + i * 50, 50, 50);//设置label位置,这里一定要设置，不然看不到label
                 label[i][j].setOpaque(true);//设置不透明
+                label[i][j].setBackground(Color.GRAY);
                 Jpanel.add(label[i][j]);
             }
-            //  jlabel.setBounds(5, 20, 10, 20);
-            // jlabel.setOpaque(true);
-            // jlabel.setText(String.valueOf(maps[0]));
-            //  Jpanel.add(jlabel);
 
         }
     }
@@ -117,14 +121,12 @@ class Map extends JFrame implements Runnable {
     public void run() {
         while (flg) {
             try {
-                Thread.sleep(100);
+                Thread.sleep(1000 / 30);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            // Jpanel.repaint();
-            printToWindow();
-            //     System.out.println((double) ((int)(Timer.time*10))/10);
-            // print();
+            //printToWindow();
+            printVision();
         }
     }
 
@@ -139,9 +141,8 @@ class Map extends JFrame implements Runnable {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println(e.getX() * 12 / 280 + "," + (e.getY() - 10) * 11 / 473);
-                hero[Operator.nowHero].setTarget_xy(e.getY() * 11 / 500, e.getX() * 12 / 280);
-                //hero[Operator.nowHero].moveToTargetPoint();
+                System.out.println((e.getY() - 15) / 50 + "," + (e.getX() - 10) / 50);
+                hero[Operator.nowHero].setTarget_xy((e.getY() - 15) / 50, (e.getX() - 10) / 50);
                 /*
                  * @param target_y 鼠标x/300*12
                  * @param target_x 鼠标y/600*12
@@ -173,22 +174,18 @@ class Map extends JFrame implements Runnable {
                             case 'w':
                             case 'W':
                                 hero[heroNum].arrow('u');
-                                System.out.println("WWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
                                 break;
                             case 's':
                             case 'S':
                                 hero[heroNum].arrow('d');
-                                System.out.println("SSSSSSSSSSSSSSSSSSSSSSSSSSSS");
                                 break;
                             case 'A':
                             case 'a':
                                 hero[heroNum].arrow('l');
-                                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                                 break;
                             case 'D':
                             case 'd':
                                 hero[heroNum].arrow('r');
-                                System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
                                 break;
                         }
                     }
@@ -230,6 +227,37 @@ class Map extends JFrame implements Runnable {
         System.out.println("===============");
         // initJLabel();
     }
+
+    /**
+     * 根据英雄之间的距离有选择的显示英雄 (距离在5格之内才显示)
+     */
+    public void printVision() {
+        //   System.out.println("===============");
+        for (int i = 0; i < size_m; i++) {
+            for (int j = 0; j < size_n; j++) {
+                if (maps[i][j] < 'A' || maps[i][j] > 'Z' || hero[Operator.nowHero].calculateDistanceFromOther(i, j) <= 5)
+                    label[i][j].setText(String.valueOf(maps[i][j]));
+                else
+                    label[i][j].setText(String.valueOf("."));
+            }
+        }
+    }
+
+
+    public void victory() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000*5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                JOptionPane.showConfirmDialog(null, "恭喜~！你已获胜！", "Vetory", JOptionPane.YES_NO_OPTION);
+            }
+        }).start();
+    }
+
 
     /**
      * 打印地图到窗口

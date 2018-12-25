@@ -1,3 +1,4 @@
+import java.io.IOException;
 import static java.lang.Math.sqrt;
 
 /**
@@ -5,6 +6,9 @@ import static java.lang.Math.sqrt;
  * camp 标注阵营，分为true阵营和false阵营
  */
 class Hero extends Thread {
+
+    public static String GameMode = null;
+
     protected boolean camp;
     protected boolean robot;
     protected char name;
@@ -20,10 +24,11 @@ class Hero extends Thread {
     protected boolean alive;
     protected long relive_time;//时间单位ms
 
+
     Hero(Map map, Hero hero[]) {
-        relive_time = 15 * 1000;//ms
+        relive_time = 8 * 1000;//ms
         robot = true;
-        speed = 1;
+        speed = 5;
         alive = true;
         this.map = map;
         this.Hero = hero;
@@ -31,6 +36,55 @@ class Hero extends Thread {
 
     @Override
     public void run() {
+        if (GameMode.equals("Player"))
+            playing();
+        else
+            review();
+    }
+
+    private void review() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                playing();
+            }
+        }).start();
+
+        while (Review.Control[getHeroNum(name)].size() > 0) {
+            String str = Review.Control[getHeroNum(name)].getFirst();
+            String[] strSub = str.split(" ");
+
+            while (Integer.valueOf(strSub[1]) > System.currentTimeMillis() - MyWrite.startTime) {
+                try {
+                    sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            switch (strSub[2]) {
+                case "setTarget_xy":
+                    setTarget_xy(Integer.valueOf(strSub[3]), Integer.valueOf(strSub[3]));
+                    break;
+                case "arrow":
+                    arrow(strSub[3].charAt(0));
+                    break;
+                case "attack":
+                    attack(getHeroNum(strSub[3].charAt(0)));
+                    break;
+            }
+        }
+    }
+
+    private int getHeroNum(char NAME) {
+        for (int i = 0; i < Operator.HeroNum; i++) {
+            if (NAME == Hero[i].name) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void playing() {
         if (!camp) {
             while (true) {
                 robot_alive();
@@ -80,6 +134,7 @@ class Hero extends Thread {
                 GengXinWeiZhi();
                 hp = 30;
                 alive = true;
+
                 System.out.println("英雄" + name + "已复活！");
             }
         }
@@ -117,10 +172,8 @@ class Hero extends Thread {
         alive = false;
         map.maps[getX()][getY()] = 'X';
         delay();
-        // map.print();
         map.maps[getX()][getY()] = '.';
         delay();
-        // map.maps[x][y] = '.';
     }
 
     /**
@@ -131,6 +184,18 @@ class Hero extends Thread {
      */
     public int calculateDistanceFromOther(Hero other) {
         double temp = (x - other.x) * (x - other.x) + (y - other.y) * (y - other.y);
+        return (int) sqrt(temp);
+    }
+
+    /**
+     * 计算和另一位英雄的之间的距离
+     *
+     * @param other_x
+     * @param other_y
+     * @return
+     */
+    public int calculateDistanceFromOther(int other_x, int other_y) {
+        double temp = (x - other_x) * (x - other_x) + (y - other_y) * (y - other_y);
         return (int) sqrt(temp);
     }
 
@@ -149,6 +214,15 @@ class Hero extends Thread {
      * @param defendHero 被攻击英雄
      */
     public void attack(Hero defendHero) {
+        /**
+         * 写入文件，录制动作
+         */
+        try {
+            MyWrite.write(name, "attack " + defendHero.name);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         if (calculateDistanceFromOther(defendHero) <= 2) {
             int DefendHeroHP = defendHero.defend(attack());
             if (DefendHeroHP <= 0) {
@@ -172,6 +246,11 @@ class Hero extends Thread {
      */
     public void arrow(char fangXiang) {
         /* TODO Auto-generated method stub */
+        try {
+            MyWrite.write(name, "arrow " + fangXiang);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         zidan one = new zidan(x, y, this, fangXiang);
         one.start();
     }
@@ -191,7 +270,7 @@ class Hero extends Thread {
                         map.maps[x][y] = '.';
                         x--;
                         GengXinWeiZhi();
-                        delay();
+                        delay(1000/speed);
                     } else break;
                 }
                 break;
@@ -202,7 +281,7 @@ class Hero extends Thread {
                         map.maps[x][y] = '.';
                         x++;
                         GengXinWeiZhi();
-                        delay();
+                        delay(1000/speed);
                     } else break;
                 }
                 break;
@@ -213,7 +292,7 @@ class Hero extends Thread {
                         map.maps[x][y] = '.';
                         y--;
                         GengXinWeiZhi();
-                        delay();
+                        delay(1000/speed);
                     } else break;
                 }
                 break;
@@ -224,7 +303,7 @@ class Hero extends Thread {
                         map.maps[x][y] = '.';
                         y++;
                         GengXinWeiZhi();
-                        delay();
+                        delay(1000/speed);
                     } else break;
                 }
                 break;
@@ -305,6 +384,14 @@ class Hero extends Thread {
         }
     }
 
+    protected void delay(int time ) {
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * 初始化
      *
@@ -323,6 +410,8 @@ class Hero extends Thread {
         this.exp = ex;
         this.x = x;
         this.y = y;
+        this.target_x = x;
+        this.target_y = y;
         GengXinWeiZhi();
     }
 
@@ -355,6 +444,11 @@ class Hero extends Thread {
      * @param target_y
      */
     public void setTarget_xy(int target_x, int target_y) {
+        try {
+            MyWrite.write(name, "setTarget_xy " + target_x + " " + target_y);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         this.target_x = target_x;
         this.target_y = target_y;
     }

@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 import java.util.*;
 
 
@@ -17,21 +14,48 @@ class Operator extends Thread {
     private Hero[] Hero;
     public Map map;
     Thread mapThread;
-    lowAI aI;
 
-    Operator(int HeroNum)   {
+    Operator() {
+    }
+
+    /**
+     * 通过英雄名检索对应的数组位置
+     *
+     * @param targetHero 目标英雄名
+     * @return 对应的数组位置
+     */
+    public int findHero(char targetHero) {
+        for (int i = 0; i < HeroNum; i++) {
+            if (Hero[i].name == targetHero)
+                return i;
+        }
+        return -1;
+    }
+
+    Operator(int HeroNum) {
         super("OperatorThread");
         this.nowHero = 0;
         this.HeroNum = HeroNum;
+
+        try {
+            MyWrite.one.write(HeroNum + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Hero = new Hero[HeroNum];
-        map = new Map(Hero);
         for (int i = 0; i < HeroNum; i++) {
             Hero[i] = new HeroA(map, Hero);
         }
+
+        map = new Map(Hero);
         mapThread = new Thread(map, "MapThread");
         mapThread.start();
-        aI = new lowAI(Hero);//智能Ai模块
-        aI.start();
+    }
+
+    public void startHero() {
+        for (int i = 0; i < Operator.HeroNum; i++) {
+            Hero[i].start();
+        }
     }
 
 
@@ -78,7 +102,6 @@ class Operator extends Thread {
     private void arrow(int hero2, char fangXiang) {
         /* TODO Auto-generated method stub */
         Hero[hero2 - 1].arrow(fangXiang);
-
     }
 
 
@@ -93,10 +116,16 @@ class Operator extends Thread {
      * @param x    初始位置
      * @param y    初始位置
      */
-    public void initHero(int n, boolean camp,char name, int atk, int hp, int ex, int x, int y)//n表示第几个英雄,从1开始
+    public void initHero(int n, boolean camp, char name, int atk, int hp, int ex, int x, int y)//n表示第几个英雄,从1开始
     {
-        Hero[n - 1].ChuShiHua(camp,name, atk, hp, ex, x, y);
+        try {
+            MyWrite.one.write(n + " " + camp + " " + name + " " + atk + " " + hp + " " + ex + " " + x + " " + y + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Hero[n - 1].ChuShiHua(camp, name, atk, hp, ex, x, y);
     }
+
 
     /**
      * 具体的操作函数，执行操作指令
@@ -230,7 +259,7 @@ class Operator extends Thread {
                     break;
             }
         }
-       // map.flg = false;//MapThread暂停
+        // map.flg = false;//MapThread暂停
     }
 
 

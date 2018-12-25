@@ -6,28 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3ffd42eb-c7fb-45c9-8b74-7c4dbb128dbd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WangZhe/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WangZhe/Hero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WangZhe/Map$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WangZhe/Map$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WangZhe/Map$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WangZhe/Map$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WangZhe/Map$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WangZhe/Map$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WangZhe/Map$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WangZhe/Map$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WangZhe/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WangZhe/Map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WangZhe/MyPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WangZhe/MyPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WangZhe/Operator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WangZhe/Operator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WangZhe/carton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WangZhe/lowAI$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WangZhe/lowAI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WangZhe/lowAI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WangZhe/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WangZhe/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WangZhe/zidan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WangZhe/zidan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Operator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Operator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WangZhe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WangZhe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lowAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lowAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/zidan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zidan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,35 +61,39 @@
     <session id="-414511761">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
+          <entry key="project.closed" value="40" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.6" value="12" />
-          <entry key="project.open.time.7" value="9" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="24" />
+          <entry key="project.open.time.1" value="8" />
+          <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.6" value="13" />
+          <entry key="project.open.time.7" value="15" />
+          <entry key="project.open.time.8" value="3" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="30" />
-          <entry key="java" value="10991" />
-          <entry key="txt" value="306" />
+          <entry key="dummy" value="37" />
+          <entry key="java" value="14147" />
+          <entry key="txt" value="333" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="10991" />
-          <entry key="PLAIN_TEXT" value="336" />
+          <entry key="JAVA" value="14147" />
+          <entry key="PLAIN_TEXT" value="370" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
-          <entry key="java" value="100" />
+          <entry key="java" value="122" />
           <entry key="md" value="1" />
           <entry key="png" value="2" />
-          <entry key="txt" value="6" />
+          <entry key="txt" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -119,8 +101,8 @@
         <counts>
           <entry key="IDEA_MODULE" value="1" />
           <entry key="Image" value="2" />
-          <entry key="JAVA" value="100" />
-          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="JAVA" value="122" />
+          <entry key="PLAIN_TEXT" value="24" />
         </counts>
       </usages-collector>
     </session>
@@ -129,20 +111,14 @@
     <favorites_list name="wangzhe" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.36489028">
+    <splitter split-orientation="horizontal" split-proportion="0.48926768">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/lowAI.java">
+            <entry file="file://$PROJECT_DIR$/src/zidan.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-                  <folding>
-                    <element signature="docComment;method#lowAI#0;class#lowAI#0" />
-                    <element signature="docComment;method#start#0;class#lowAI#0" />
-                    <element signature="docComment;method#delay#0;class#lowAI#0" />
-                    <element signature="method#delay#0;class#lowAI#0" />
-                  </folding>
+                <state relative-caret-position="418">
+                  <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -151,82 +127,34 @@
             <entry file="file://$PROJECT_DIR$/src/Operator.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="228">
-                  <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+                  <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="docComment;class#Operator#0" />
-                    <element signature="docComment;method#ShanXian#0;class#Operator#0" />
-                    <element signature="docComment;method#move#0;class#Operator#0" />
-                    <element signature="method#move#0;class#Operator#0" />
-                    <element signature="docComment;method#attack#0;class#Operator#0" />
-                    <element signature="docComment;method#arrow#0;class#Operator#0" />
-                    <element signature="method#arrow#0;class#Operator#0" />
-                    <element signature="docComment;method#initHero#0;class#Operator#0" />
-                    <element signature="method#initHero#0;class#Operator#0" />
-                    <element signature="docComment;method#operator#0;class#Operator#0" />
-                    <element signature="method#operator#0;class#Operator#0" />
-                    <element signature="method#operatorFile#0;class#Operator#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/SelectionFrame.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-6">
-                  <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#1090#1091#0" expanded="true" />
-                    <element signature="e#1134#1135#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Hero.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="834">
-                  <caret line="319" column="25" selection-start-line="319" selection-start-column="25" selection-end-line="319" selection-end-column="25" />
-                  <folding>
-                    <element signature="docComment;class#Hero#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="132">
-                  <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+                <state relative-caret-position="171">
+                  <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/zidan.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="475">
-                  <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test.txt">
-              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Map.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2565">
-                  <caret line="143" column="18" selection-start-line="143" selection-start-column="18" selection-end-line="143" selection-end-column="18" />
+                <state relative-caret-position="494">
+                  <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="docComment;method#initJFrame#0;class#Map#0" />
                     <element signature="docComment;method#addBar#0;class#Map#0" />
                     <element signature="docComment;method#initJLabel#0;class#Map#0" />
                   </folding>
@@ -234,11 +162,32 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/MyPanel.java">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/SelectionFrame.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="114">
-                  <caret line="10" selection-start-line="10" selection-end-line="10" />
+                <state relative-caret-position="224">
+                  <caret line="42" column="55" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Write.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="95">
+                  <caret line="5" selection-start-line="5" selection-end-line="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Review.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="266">
+                  <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -250,47 +199,36 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/lowAI.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="190">
-                  <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-                  <folding>
-                    <element signature="docComment;method#lowAI#0;class#lowAI#0" />
-                    <element signature="docComment;method#start#0;class#lowAI#0" />
-                    <element signature="docComment;method#delay#0;class#lowAI#0" />
-                    <element signature="method#delay#0;class#lowAI#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Hero.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="317">
-                  <caret line="416" column="18" lean-forward="true" selection-start-line="416" selection-start-column="18" selection-end-line="416" selection-end-column="18" />
+                <state relative-caret-position="570">
+                  <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
                   <folding>
+                    <element signature="imports" expanded="true" />
                     <element signature="docComment;class#Hero#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Write.java">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Operator.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="176">
-                  <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+                <state relative-caret-position="551">
+                  <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/io/BufferedWriter.java">
+            <entry file="file://$PROJECT_DIR$/src/Write.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="329">
-                  <caret line="245" selection-start-line="245" selection-end-line="245" />
+                <state relative-caret-position="209">
+                  <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -298,8 +236,20 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/WangZhe.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="114">
-                  <caret line="6" column="50" lean-forward="true" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+                <state relative-caret-position="95">
+                  <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/SelectionFrame.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1976">
+                  <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -307,12 +257,25 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Map.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="266">
-                  <caret line="97" column="19" selection-start-line="97" selection-start-column="19" selection-end-line="97" selection-end-column="19" />
+                <state relative-caret-position="1710">
+                  <caret line="100" column="19" selection-start-line="100" selection-start-column="19" selection-end-line="100" selection-end-column="19" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="docComment;method#initJFrame#0;class#Map#0" />
                     <element signature="docComment;method#addBar#0;class#Map#0" />
                     <element signature="docComment;method#initJLabel#0;class#Map#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Review.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="437">
+                  <caret line="23" selection-start-line="23" selection-end-line="23" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -350,6 +313,8 @@
       <find>Jpanel</find>
       <find>JPanel</find>
       <find>delay</find>
+      <find>find</find>
+      <find>speed</find>
     </findStrings>
     <replaceStrings>
       <replace>Hero</replace>
@@ -388,23 +353,27 @@
         <option value="$PROJECT_DIR$/Test/MyPanelTest.java" />
         <option value="$PROJECT_DIR$/Test/lowAITest.java" />
         <option value="$PROJECT_DIR$/src/MyPanel.java" />
-        <option value="$PROJECT_DIR$/test.txt" />
         <option value="$PROJECT_DIR$/src/Timer.java" />
-        <option value="$PROJECT_DIR$/src/Operator.java" />
-        <option value="$PROJECT_DIR$/src/lowAI.java" />
         <option value="$PROJECT_DIR$/src/zidan.java" />
-        <option value="$PROJECT_DIR$/src/Hero.java" />
-        <option value="$PROJECT_DIR$/src/WangZhe.java" />
-        <option value="$PROJECT_DIR$/src/SelectionFrame.java" />
-        <option value="$PROJECT_DIR$/src/Map.java" />
-        <option value="$PROJECT_DIR$/src/Write.java" />
+        <option value="$PROJECT_DIR$/test.txt" />
         <option value="$PROJECT_DIR$/src/test.java" />
+        <option value="$PROJECT_DIR$/test_27.txt" />
+        <option value="$PROJECT_DIR$/src/Write.java" />
+        <option value="$PROJECT_DIR$/src/lowAI.java" />
+        <option value="H:/testSocket/src/Client.java" />
+        <option value="$PROJECT_DIR$/src/Client.java" />
+        <option value="$PROJECT_DIR$/src/WangZhe.java" />
+        <option value="$PROJECT_DIR$/src/Operator.java" />
+        <option value="$PROJECT_DIR$/src/Map.java" />
+        <option value="$PROJECT_DIR$/src/Review.java" />
+        <option value="$PROJECT_DIR$/src/Hero.java" />
+        <option value="$PROJECT_DIR$/src/SelectionFrame.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-18" />
-    <option name="y" value="153" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="527" />
+    <option name="y" value="42" />
     <option name="width" value="1294" />
     <option name="height" value="858" />
   </component>
@@ -416,7 +385,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -437,6 +405,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -459,17 +428,18 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\78580\IdeaProjects\wangzhe\src" />
       <recent name="C:\Users\78580\IdeaProjects\wangzhe" />
       <recent name="C:\Users\78580\IdeaProjects\王者荣耀\src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="org.junit.jupiter.api.AssertEquals" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\78580\IdeaProjects\wangzhe" />
       <recent name="C:\Users\78580\IdeaProjects\王者荣耀\src" />
     </key>
@@ -486,7 +456,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.test">
+  <component name="RunManager" selected="Application.WangZhe">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WangZhe" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="WangZhe" />
       <module name="WangZhe" />
@@ -519,30 +495,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="lowAITest.start" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WangZhe" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="lowAITest" />
-      <option name="METHOD_NAME" value="start" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.WangZhe" />
-      <item itemvalue="JUnit.lowAITest.start" />
       <item itemvalue="JUnit.MyPanelTest.paint" />
       <item itemvalue="JUnit.MyPanelTest" />
       <item itemvalue="Application.test" />
+      <item itemvalue="Application.Client" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.test" />
         <item itemvalue="Application.WangZhe" />
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.test" />
         <item itemvalue="JUnit.MyPanelTest" />
         <item itemvalue="JUnit.MyPanelTest.paint" />
-        <item itemvalue="JUnit.lowAITest.start" />
       </list>
     </recent_temporary>
   </component>
@@ -583,25 +549,25 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="527" y="42" width="1294" height="858" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6318681" visible="true" weight="0.14978679" />
-      <window_info id="Structure" order="1" sideWeight="0.36813188" side_tool="true" visible="true" weight="0.14978679" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.69156295" visible="true" weight="0.2504052" />
+      <window_info id="Structure" order="1" sideWeight="0.30843708" side_tool="true" visible="true" weight="0.2504052" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" sideWeight="0.5007542" side_tool="true" weight="0.14688857" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.20955484" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4809989" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32790446" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24538545" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39413682" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32899022" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32899022" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32899022" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3257329" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32464713" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -647,110 +613,19 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Hero.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$0/Map.java" />
-    <entry file="file://$PROJECT_DIR$/src/zidanTest.java" />
-    <entry file="file://$PROJECT_DIR$/WangZhe.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/NumberFormatException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/javax/accessibility/Accessible.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="40" column="72" selection-start-line="40" selection-start-column="72" selection-end-line="40" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/java/awt/Color.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-435">
-          <caret line="394" column="37" lean-forward="true" selection-start-line="394" selection-start-column="37" selection-end-line="394" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/java/awt/Container.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="498" column="81" selection-start-line="498" selection-start-column="75" selection-end-line="498" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/java/awt/Panel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/java/applet/Applet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="55" column="31" lean-forward="true" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/java/awt/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10108">
-          <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/Override.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="51" column="34" lean-forward="true" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/util/EventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/java/awt/event/KeyListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="57" column="7" lean-forward="true" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/java/awt/event/KeyEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="1247" column="59" lean-forward="true" selection-start-line="1247" selection-start-column="59" selection-end-line="1247" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/sun/java2d/SunGraphics2D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="3024" selection-start-line="3024" selection-end-line="3024" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/javax/swing/JFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="741" column="26" lean-forward="true" selection-start-line="741" selection-start-column="26" selection-end-line="741" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wxfix.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -768,13 +643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="841" column="16" selection-start-line="841" selection-start-column="16" selection-end-line="841" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/HeroList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -786,10 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-          <folding>
-            <element signature="e#85#86#0" expanded="true" />
-            <element signature="e#116#117#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -797,10 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" selection-start-line="4" selection-end-line="6" selection-end-column="5" />
-          <folding>
-            <element signature="e#85#86#0" expanded="true" />
-            <element signature="e#116#117#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -867,95 +727,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="37" lean-forward="true" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MyKeyListener.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/System.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="389" column="30" selection-start-line="389" selection-start-column="30" selection-end-line="389" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Timer.java" />
-    <entry file="file://$PROJECT_DIR$/src/MyPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Operator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#Operator#0" />
-            <element signature="docComment;method#ShanXian#0;class#Operator#0" />
-            <element signature="docComment;method#move#0;class#Operator#0" />
-            <element signature="method#move#0;class#Operator#0" />
-            <element signature="docComment;method#attack#0;class#Operator#0" />
-            <element signature="docComment;method#arrow#0;class#Operator#0" />
-            <element signature="method#arrow#0;class#Operator#0" />
-            <element signature="docComment;method#initHero#0;class#Operator#0" />
-            <element signature="method#initHero#0;class#Operator#0" />
-            <element signature="docComment;method#operator#0;class#Operator#0" />
-            <element signature="method#operator#0;class#Operator#0" />
-            <element signature="method#operatorFile#0;class#Operator#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lowAI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="docComment;method#lowAI#0;class#lowAI#0" />
-            <element signature="docComment;method#start#0;class#lowAI#0" />
-            <element signature="docComment;method#delay#0;class#lowAI#0" />
-            <element signature="method#delay#0;class#lowAI#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Hero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="416" column="18" lean-forward="true" selection-start-line="416" selection-start-column="18" selection-end-line="416" selection-end-column="18" />
-          <folding>
-            <element signature="docComment;class#Hero#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="97" column="19" selection-start-line="97" selection-start-column="19" selection-end-line="97" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#addBar#0;class#Map#0" />
-            <element signature="docComment;method#initJLabel#0;class#Map#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WangZhe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="50" lean-forward="true" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/io/Writer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -963,49 +739,197 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tet.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SelectionFrame.java">
+    <entry file="file://$PROJECT_DIR$/tet.txt" />
+    <entry file="file://$PROJECT_DIR$/src/MyPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1090#1091#0" expanded="true" />
-            <element signature="e#1134#1135#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="114">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="369" selection-start-line="369" selection-end-line="369" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/jdk/internal/loader/ClassLoaders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="189" selection-start-line="189" selection-end-line="189" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/jdk/internal/loader/BuiltinClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="591" selection-start-line="591" selection-end-line="591" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/util/concurrent/ConcurrentHashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="1044" selection-start-line="1044" selection-end-line="1044" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/ClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10716">
+          <caret line="644" selection-start-line="644" selection-end-line="644" />
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/io/BufferedWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
+        <state relative-caret-position="4180">
           <caret line="245" selection-start-line="245" selection-end-line="245" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/zidan.java">
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/io/FileOutputStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+        <state relative-caret-position="291">
+          <caret line="158" column="59" lean-forward="true" selection-start-line="158" selection-start-column="59" selection-end-line="158" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/io/FileWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="105" column="11" selection-start-line="105" selection-start-column="11" selection-end-line="105" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_2.txt" />
+    <entry file="file://$PROJECT_DIR$/test_27.txt" />
+    <entry file="file://$PROJECT_DIR$/test_20.txt" />
+    <entry file="file://$PROJECT_DIR$/test_3.txt" />
+    <entry file="file://$PROJECT_DIR$/src/lowAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <element signature="docComment;method#lowAI#0;class#lowAI#0" />
+            <element signature="e#149#150#0" expanded="true" />
+            <element signature="e#181#182#0" expanded="true" />
+            <element signature="docComment;method#start#0;class#lowAI#0" />
+            <element signature="docComment;method#delay#0;class#lowAI#0" />
+            <element signature="method#delay#0;class#lowAI#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="794" column="29" selection-start-line="794" selection-start-column="29" selection-end-line="794" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_4.txt" />
+    <entry file="file://$PROJECT_DIR$/src/Client.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/javax/swing/JOptionPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="310" column="13" selection-start-line="310" selection-start-column="13" selection-end-line="310" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.txt" />
+    <entry file="file://$PROJECT_DIR$/test_5.txt" />
+    <entry file="file://$PROJECT_DIR$/test_1.txt" />
+    <entry file="file://$PROJECT_DIR$/src/zidan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        <state relative-caret-position="171">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Hero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Hero#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Operator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Write.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="209">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WangZhe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SelectionFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1976">
+          <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1710">
+          <caret line="100" column="19" selection-start-line="100" selection-start-column="19" selection-end-line="100" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#initJFrame#0;class#Map#0" />
+            <element signature="docComment;method#addBar#0;class#Map#0" />
+            <element signature="docComment;method#initJLabel#0;class#Map#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Review.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

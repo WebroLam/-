@@ -15,7 +15,7 @@ public class lowAI {
      * 开始函数，为每个电脑英雄初始化线程
      */
     public void start() {
-        for (int i = 0 / 2; i < Operator.HeroNum; i++) {
+        for (int i = 0 ; i < Operator.HeroNum; i++) {
             hero[i].start();
         }
     }
